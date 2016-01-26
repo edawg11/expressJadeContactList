@@ -27,11 +27,11 @@ function handleButtonClick (e){
 }
 
 function handleH2click(e) {
+	// e.preventDefault();
 	var clickedText = $(e.target).text();
-	
-	$.get('/profiles/'+ clickedText)
+	console.log('clickedText:', clickedText	);
+	$.get('./profiles', {name: clickedText})
 	.success(function(data){
-		console.log('clickedText:', clickedText)
-
+		
 	})
 }
