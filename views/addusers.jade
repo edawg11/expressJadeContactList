@@ -1,0 +1,9 @@
+extends layout
+
+block content
+	h1= title
+
+	p Welcome to #{title}
+	input(type="text" id="nameInput")
+	button(type='button' id='userButton') Add User
+	a(href='/') Home
