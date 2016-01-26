@@ -22,16 +22,20 @@ function handleButtonClick (e){
 	})
 	.fail(function(err){
 		console.error(err);
-
 	});
 }
 
 function handleH2click(e) {
-	// e.preventDefault();
+	e.preventDefault();
 	var clickedText = $(e.target).text();
 	console.log('clickedText:', clickedText	);
-	$.get('./profiles', {name: clickedText})
-	.success(function(data){
-		
-	})
+	
+
+	$.post( "/profiles", {name: clickedText} )
+		.success(function(data){
+			console.log(data.name)
+			location.replace('/profiles/' + data.name)
+		})
+	
+	
 }
