@@ -5,5 +5,6 @@ block content
   p Welcome to #{title}
   a(href='/addusers') Add Users
   each user in data
-    h2= user.name
+    h2 
+      a(href='/profiles')= user.name 
 

@@ -6,6 +6,7 @@ $(document).ready(init);
 
 function init(){
 	$userButton.on('click', handleButtonClick);
+	$('h2').click(handleH2click);
 }
 
 function handleButtonClick (e){
@@ -16,11 +17,21 @@ function handleButtonClick (e){
 		console.log("OK!!!")
 		setTimeout(function() {
 			location.replace('/');
-		}, 2000);
+		}, 1000);
 
 	})
 	.fail(function(err){
 		console.error(err);
 
 	});
+}
+
+function handleH2click(e) {
+	var clickedText = $(e.target).text();
+	
+	$.get('/profiles/'+ clickedText)
+	.success(function(data){
+		console.log('clickedText:', clickedText)
+
+	})
 }
